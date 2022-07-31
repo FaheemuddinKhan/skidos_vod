@@ -13,8 +13,9 @@
 
 
 Upload Microservice
+![2022-07-31](https://user-images.githubusercontent.com/37400411/182039310-2cb57c42-b7d4-4752-afd4-5b83fc22ebdc.png)
 
-![2022-07-31](https://user-images.githubusercontent.com/37400411/182038977-aa6f7e92-0305-45ae-8efe-a58edf9d83d7.png)
+
 
 The upload microservice will be triggered while creating the content on this application. This also helps in achieving requirement 2 shown above which is adaptive bitrate streaming. We will talk about it later in this document. 
 
