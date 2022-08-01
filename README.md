@@ -134,3 +134,22 @@ Within the scope of this problem, we need to persist video metadata in the datab
 
 
 ![Screenshot 2022-08-01 131350](https://user-images.githubusercontent.com/37400411/182098981-9d2dd7ee-c000-4891-877b-c54aab6fe9bc.png)
+
+#### Video Uploader Component
+
+This module is executed when a content creator/uploader uploads a content. It is responsible for distributing the content on CDN to provide optimal user experience.
+![Video Uploader Component Design](https://user-images.githubusercontent.com/37400411/182103529-33fe9a16-0e9c-4974-88cb-a182de0af179.png)
+
+
+The diagram above depicts the sequence of operations which gets executed when content creators upload the video content (TV Show or movie).
+
+The content creator uploads the raw video content.
+The Upload_Service sends the video to Video_Encoder (AWS Elemental) for encoding purpose.
+The Video_Encoder encodes each of the segments in different codec and resolution.
+The encoded file segments are stored in the file storage.
+The Upload_Service reads the encoded file segments from the distributed file storage system.
+The Upload_Service distributes the encoded file segments in CDN (Cloudfront).
+The Upload_Service persists the CDN url links of the videos in the data_storage (MySQL).
+
+
+
