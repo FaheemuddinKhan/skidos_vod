@@ -1,4 +1,4 @@
-# eskidos_vod
+# skidos_vod
 
 ### Video On Demand Service Assignment - HLD and LLD for a Video on Demand backend microservice to serve fun learning videos
 
@@ -27,3 +27,9 @@ When the uploader hits the upload file or create request on the API gateway, the
 ![2022-08-01](https://user-images.githubusercontent.com/37400411/182084007-cbdf2050-fa3a-49a0-bba6-77f986d00313.png)
 
 When the end user makes a view request for a video or searches for any video using keywords, the request will be redirected to the Video microservice. It interacts with Metadata storage to fetch the information especially nearest CDN with video Url and responds back with that information and then the user makes request to the nearest CDN node to view the video. For Content discovery, video microservice interacts with the Elastic search and metadata storage to send back the matched video and the simailar results in the response.
+
+### Overall Architecture
+
+
+![2022-08-01 (1)](https://user-images.githubusercontent.com/37400411/182087754-2141b54b-5d53-4d2f-8c5f-e8e9da1e0969.png)
+
