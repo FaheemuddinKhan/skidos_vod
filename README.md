@@ -184,3 +184,15 @@ The details about each of the steps in the sequence diagram is listed below.
 5. The client retrieves the content from CDN.
 6. The client publishes the events for the playback experience to the Playback_Service.
 7. The Video_microservice tracks events to measure the playback experience.
+
+#### Video Search Component (Content Discovery)
+This workflow is triggered when user searches for a video title and comprises of one microservice: Video MicroserviceService, ElasticSearch and MySQL. The Videot  Microservice gets invoked when user requests for the video title.
+
+1. The client searches for a video title.
+2. The Video Microservice authenticates the request and then queries the Elastic Search to check if the video title exists in our database.
+3. If the video title can be found in the elastic search then CDS fetches the details of the video from the data store.
+4. The video details are returned to the client.
+5. Video Microservice also queries ElasticSearch if the title doesn’t exist in our database.
+6. Video Microservice fetches the video details from the data-store for those similar video titles.
+7. Video Microservice returns the similar video details to the client.
+
