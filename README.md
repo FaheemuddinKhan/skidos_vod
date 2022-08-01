@@ -127,3 +127,10 @@ Query Param
 offset: Time in seconds from the beginning of the video
 
 }
+
+#### Data Model
+
+Within the scope of this problem, we need to persist video metadata in the database. The data-model for storing the metadata is shown in the table below.
+
+
+![Screenshot 2022-08-01 131350](https://user-images.githubusercontent.com/37400411/182098981-9d2dd7ee-c000-4891-877b-c54aab6fe9bc.png)
