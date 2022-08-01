@@ -80,5 +80,50 @@ Elasticsearch is a distributed, free and open search and analytics engine for al
 It approximately takes 10ms to fetch the data, for which RDBMS can take up to 10s.
 However for this application we will be using AWS ElasticSearch.
 
+### Low Level Design
 
+#### API Design
 
+##### Video Upload API
+
+Path
+POST /video-contents/v1/videos
+
+Body
+{
+
+videoTitle : Title of the video
+
+videoDescription : Description of the video
+
+tags : Tags associated with the video
+
+category : Category of the video, e.g. Maths, Science,
+
+videoContent: Stream of video content to be uploaded
+
+}
+
+##### Video Search API
+
+Path
+GET /video-contents/v1/search-query/
+
+Query Param
+{
+
+user-location: location of the user performing search
+
+}
+
+##### Video Stream API
+
+Path
+GET /video-contents/v1/videos/
+
+Query Param
+{
+
+offset: Time in seconds from the beginning of the video
+
+}
