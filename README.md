@@ -143,13 +143,13 @@ This module is executed when a content creator/uploader uploads a content. It is
 
 The diagram above depicts the sequence of operations which gets executed when content creators upload the video content (TV Show or movie).
 
-The content creator uploads the raw video content.
-The Upload_Service sends the video to Video_Encoder (AWS Elemental) for encoding purpose.
-The Video_Encoder encodes each of the segments in different codec and resolution.
-The encoded file segments are stored in the file storage.
-The Upload_Service reads the encoded file segments from the distributed file storage system.
-The Upload_Service distributes the encoded file segments in CDN (Cloudfront).
-The Upload_Service persists the CDN url links of the videos in the data_storage (MySQL).
+1. The content creator uploads the raw video content.
+2. The Upload_Service sends the video to Video_Encoder (AWS Elemental) for encoding purpose.
+3. The Video_Encoder encodes each of the segments in different codec and resolution.
+4. The encoded file segments are stored in the file storage.
+5. The Upload_Service reads the encoded file segments from the distributed file storage system.
+6. The Upload_Service distributes the encoded file segments in CDN (Cloudfront).
+7. The Upload_Service persists the CDN url links of the videos in the data_storage (MySQL).
 
 
 
