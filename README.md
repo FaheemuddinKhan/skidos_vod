@@ -33,3 +33,52 @@ When the end user makes a view request for a video or searches for any video usi
 
 ![2022-08-01 (1)](https://user-images.githubusercontent.com/37400411/182087754-2141b54b-5d53-4d2f-8c5f-e8e9da1e0969.png)
 
+In the diagram above, you might have noticed that we are using AWS for our application as AWS has reach more than any other cloud provider all over the world.
+
+#### EC2 -
+Amazon EC2 is a cloud computing platform that can be auto-scaled to meet demand.
+Different hardware and software configurations can be selected. Different geographical locations can be selected be closer to users, as well as providing redundancy in case of failures.
+Persistent storage can be provided by Amazon EBS (Elastic Block Storage). Amazon S3 (Simple Storage Service) data can also be accessed with Amazon EC2 instances, and is free if they are in the same region.
+
+#### ELB - 
+1. This service distributes application traffic across services.
+2. The Load Balancer is a single point of contact for incoming web traffic.
+3. The single point of contact means that the traffic hits the Load Balancer, spreading out the load between the resources.
+4. It balancer accepts requests and directs them to the appropriate instances.
+5. It ensures that one resource won't get overloaded, and that the traffic is spread out.
+
+#### Niginx Plus API gateway on AWS
+NGINX Plus is an application delivery platform built on NGINX, an open-source web server and reverse proxy for high-traffic sites. NGINX Plus has enterprise-ready features for advanced load balancing, web and mobile acceleration, application security, monitoring, and management.
+
+#### MySQL
+For this application, we are using MySQL to store meta data related to the videos uploaded on server. It is high performant, highly accessible and typically runs with no downtime.
+
+#### Amazon S3 storage
+Amazon S3 is a secure and redundant storage system that uses a flat object storage structure.
+Data is stored in three different physical availability zone that also provides redundancy.
+Different storage classes options are offered, balacing cost and availability. Automated management of storage can move objects to cheaper storage classes if they are accessed infrequently. Objects can also be automatically expire and be deleted after a specified time.
+Access can be managed by access control lists or AWS Identity and Access Management (IAM).
+Server access requests to buckets can be logged for security and analytics. AWS CloudTrail also enables logging at object level.
+
+Moreover S3 easily integrates with AWS cloudfront which is also useful for this application.
+
+#### AWS Cloudfront
+Amazon CloudFront is a globally distributed network of servers that can deliver content to users.
+The netowrk has edges (servers) in many locations around the world. The servers cache content closer to the users to improve access speed which in this application's use case helps users to access videos with lowest possible latency.
+Creation of new distributions can be automated.
+Caching data in multiple locations also provide data redundancy, improving reliability of access.
+Amazon CloudFront uses RTMP protocol for video streaming and HTTP or HTTPS for web content.
+Content delivery networks are suited for delivery of bulky data, like video streaming, downloading larger files and software, and to make website access faster.
+
+#### AWS Elemental MediaConvert
+
+AWS Elemental MediaConvert is a file-based video transcoding service with broadcast-grade features. It allows you to easily create video-on-demand (VOD) content for broadcast and multiscreen delivery at scale.
+Using MediaConvert allows content creators to provide users with multiple resolutions for each of the videos which helps in Adaptive bitrate streaming.
+
+#### AWS ElasticSearch
+Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. 
+It approximately takes 10ms to fetch the data, for which RDBMS can take up to 10s.
+However for this application we will be using AWS ElasticSearch.
+
+
+
