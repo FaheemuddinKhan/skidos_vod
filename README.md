@@ -67,7 +67,7 @@ Amazon CloudFront is a globally distributed network of servers that can deliver 
 The netowrk has edges (servers) in many locations around the world. The servers cache content closer to the users to improve access speed which in this application's use case helps users to access videos with lowest possible latency.
 Creation of new distributions can be automated.
 Caching data in multiple locations also provide data redundancy, improving reliability of access.
-Amazon CloudFront uses RTMP protocol for video streaming and HTTP or HTTPS for web content.
+Amazon CloudFront uses RTMP protocol for video streaming and HTTP or HTTPS for web content. It also uses CMAF which will be used for this application.
 Content delivery networks are suited for delivery of bulky data, like video streaming, downloading larger files and software, and to make website access faster.
 
 #### AWS Elemental MediaConvert
