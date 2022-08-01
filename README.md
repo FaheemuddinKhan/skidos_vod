@@ -151,5 +151,36 @@ The diagram above depicts the sequence of operations which gets executed when co
 6. The Upload_Service distributes the encoded file segments in CDN (Cloudfront).
 7. The Upload_Service persists the CDN url links of the videos in the data_storage (MySQL).
 
+AWS Elemental can convert the video file to various different formats like Mpeg, HLS, however we will be using CMAF in our application to support wider audience which actually is supported by all major video service providers like google, apple and microsoft.
+
+##### Why CMAF?
+As we said above, to reach a wider audience base, VoD providers need to create multiple copies of each stream file in different file containers. 
+
+So these same files reduce productivity by nearly double the cost of packaging, storing, and competing with each other on CDN servers. 
+
+ Let’s look at what Akamai said about this: 
+
+“These same files, although representing the same content, cost twice as much to package, twice as much to store on origin, and compete with each other on Akamai edge caches for space, thereby reducing the efficiency with which they can be delivered.” 
+
+The importance of CMAF comes into play here. As a standard streaming format across all platforms, it helps us with single-approach encoding, packaging and storage. So, Common Media Application Format makes the video streaming process much cheaper and less complicated.
+
+Shortly, With CMAF streaming, you have one set of audio/video files in a fragmented MP4 format with very lightweight manifest files for all four adaptive bitrate (ABR) formats. Hypothetically, this cuts encoding and storage costs by 75% and makes your caching much more efficient. 
+
+It also supports Common Encryption Format across all formats which keeps our data/video streams secure from unauthorized access.
 
 
+#### Video View Component (Playback)
+
+This workflow is responsible for orchestrating operations when a user places a playback request. It co-ordinates between different entities such as Video Microservice (for checking user authorization and licensing, for deciding the best playback experience), CDN, MySQL
+
+The deta![View Video Component](https://user-images.githubusercontent.com/37400411/182110248-35bd2073-4cde-48a4-91dc-6213769d41db.png)
+
+The details about each of the steps in the sequence diagram is listed below.
+
+1. The client places a request to playback a video which gets directed to the Video_Microservice.
+2. The Video_Microservice authenticates the users request using the token parameter in the request.
+3. The Video_Microservice then picks the best CDN url from which the playback can be served.
+4. The CDN url is returned to the client(mobile/laptop).
+5. The client retrieves the content from CDN.
+6. The client publishes the events for the playback experience to the Playback_Service.
+7. The Video_microservice tracks events to measure the playback experience.
